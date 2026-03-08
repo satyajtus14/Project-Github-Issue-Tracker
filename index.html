@@ -56,9 +56,9 @@
      <!-- Status Section Design -->
     <section id="status-dashboard" class="w-11/12 mx-auto py-3 p-3 flex justify-between items-center bg-white shadow-xl border-2 border-white rounded-lg" > 
       <div role="tablist" class="tabs gap-2 status-container  ">
-        <button onclick="filterJobs('all')" id="all-issue" role="tab" class="btn btn-primary w-40  tab-active  bg-blue-600  text-white rounded-md font-medium">All</button>
-        <button onclick="filterJobs('open')" id="open-issue-tab" role="tab" class="btn w-40 bg-white text-black rounded-md font-normal">Open</button>
-        <button onclick="filterJobs('closed')" id="closed-issue-tab" role="tab" class="btn w-40 bg-white text-black rounded-md font-normal">Closed</button>
+        <button onclick="filterJobs('all')" id="all-issue" role="tab" class="btn issue-btn btn-primary w-40  tab-active  bg-blue-600  text-white rounded-md font-medium">All</button>
+        <button onclick="filterJobs('open')" id="open-issue-tab" role="tab" class="btn issue-btn w-40 bg-white text-black rounded-md font-normal">Open</button>
+        <button onclick="filterJobs('closed')" id="closed-issue-tab" role="tab" class="btn issue-btn w-40 bg-white text-black rounded-md font-normal">Closed</button>
       </div>
     </section>  
 
@@ -87,9 +87,7 @@
 
          </section>
 
-         <section id="filtered-section" class="hidden">
 
-         </section>
 
         <!-- Design Modal for displaying specific word details to hide rest behind -->
         <dialog id="word_details_modal" class="modal modal-bottom sm:modal-middle">

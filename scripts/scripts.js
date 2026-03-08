@@ -1,29 +1,52 @@
 
-/* Searching feature */
-document.getElementById("search-id").addEventListener("click", () => {
+/* Remove Active status to All buttons */
+const removeActive =() => {
+  const issueCountBtn = document.querySelectorAll('.issue-btn');
+  issueCountBtn.forEach(btn => {
+  btn.classList.remove('btn-active');
+     })
+ }
 
-    removeActive();
-    
-    const searchInput = document.getElementById("input-search");
-    const searchValue = searchInput.value.trim().toLowerCase();
-    
-    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+
+let allIssues = [];
+
+/* Searching feature */
+function searchIssues(){
+
+  const searchInput = document.getElementById("input-search");
+  const searchValue = searchInput.value.trim().toLowerCase();
+
+  if(!searchValue){
+    issues = allIssues;
+    renderIssues();
+    updateTotalIssueNumber();
+    return;
+  }
+
+  fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
     .then(res => res.json())
     .then(data => {
-    
-    const issues = data.data;
-    
-    console.log(issues);
-    
-    displayLevelWord(issues);
-    
-    searchInput.value = "";
-    
-    })
-  
-    
-    });
 
+      issues = data.data;
+      
+      renderIssues();
+      updateTotalIssueNumber();
+
+      searchInput.value = "";
+
+    })
+    .catch(err => console.error("Search error:", err));
+
+}
+
+/* Add "Enter" key for searching */
+document.getElementById("search-id").addEventListener("click", searchIssues);
+document.getElementById("input-search").addEventListener("keydown", (e) => {
+ if(e.key === "Enter"){
+      searchIssues();
+    }
+
+});
 
     let issues = [];
     let currentStatus = "all";
@@ -43,8 +66,9 @@ document.getElementById("search-id").addEventListener("click", () => {
     .then(data => {
 
       issues = data.data;
-
+      allIssues = data.data;
       renderIssues();
+      removeActive();
 
     });
 
@@ -138,7 +162,7 @@ const displayissueById = (issues) => {
     
       updateTotalIssueNumber(filteredIssues.length);
     
-      if(filteredIssues.length === 0){
+      if(filteredIssues.inn=== "open"){
         issueContainer.innerHTML = `
           <div class="hero bg-base-200 min-h-screen py-6 mx-auto">
             <div class="hero-content text-center">
@@ -215,5 +239,5 @@ const displayissueById = (issues) => {
       currentStatus = status;
     
       renderIssues();
-    
+     
     }
