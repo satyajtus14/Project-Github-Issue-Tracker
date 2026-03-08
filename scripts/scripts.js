@@ -1,5 +1,4 @@
 
-
 /* Searching feature */
 document.getElementById("search-id").addEventListener("click", () => {
 
@@ -25,36 +24,32 @@ document.getElementById("search-id").addEventListener("click", () => {
     
     });
 
-    /* TAB(ALL,OPEN & CLOSED) feature */
 
+    let issues = [];
+    let currentStatus = "all";
 
+        /* Get All DOM Elements by their Attributes */
+      const filerSection = document.getElementById('filtered-section');
+      const displayCountJob = document.getElementById("issue-card-container");  
 
-    /* Counting total issues */
-    const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
-
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("total-issue").innerText = data.data.length + ' Issues';
-        // console.log(totalIssue);
-      });
-
-   /* Counting Total Open issues */
-
-
-    /* Counting Total Close issues */
 
 
 
 /* Task no-1:  All issues feature need to count */
-const loadAllIssues = () =>{
-    fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues') // Promise of response
-    .then((res) => res.json()) // promise of json data
-    .then((data) => displayissueById(data.data)) // log the data
+    function loadAllIssues(){
 
-     /* Counting total issues */
-     
+     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    .then(res => res.json())
+    .then(data => {
+
+      issues = data.data;
+
+      renderIssues();
+
+    });
+
 }
+
 
 
 /* Calling Function */
@@ -71,7 +66,7 @@ const displayissueById = (issues) => {
     
     const issueCardDiv = document.createElement("div");
     
-    issueCardDiv.className = "bg-white rounded-xl shadow p-5 space-y-4";
+    issueCardDiv.className = "allIssue bg-white rounded-xl shadow p-5 space-y-4";
 
     const priorityColor = i.priority === "high"? "bg-red-100 text-red-500":
      i.priority === "medium"? "bg-yellow-100 text-yellow-600": "bg-gray-100 text-gray-500";
@@ -107,8 +102,7 @@ const displayissueById = (issues) => {
 /* Managing Label color */
   function createElement(labels){
 
-    return labels.map(label => {
-    
+    return labels.map(label => {  
     const labelColor =
     label === "bug"
     ? "bg-red-100  text-red-500"
@@ -122,5 +116,104 @@ const displayissueById = (issues) => {
     <span class=" px-2 py-1 text-xs font-normal rounded ${labelColor}">${label.toUpperCase()} </span>
     `;
     }).join("");
+    
+    }
+
+
+  /* Managing all by Render function  */  
+    function renderIssues(){
+
+      const issueContainer = document.getElementById("issue-card-container");
+      issueContainer.innerHTML = "";
+    
+      let filteredIssues = issues;
+    
+      if(currentStatus === "open"){
+        filteredIssues = issues.filter(issue => issue.status === "open");
+      }
+    
+      if(currentStatus === "closed"){
+        filteredIssues = issues.filter(issue => issue.status === "closed");
+      }
+    
+      updateTotalIssueNumber(filteredIssues.length);
+    
+      if(filteredIssues.length === 0){
+        issueContainer.innerHTML = `
+          <div class="hero bg-base-200 min-h-screen py-6 mx-auto">
+            <div class="hero-content text-center">
+              <div class="max-w-md">
+                <h1 class="text-3xl font-bold">No Issues Found</h1>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+    
+      filteredIssues.forEach(issue => {
+    
+        const div = document.createElement("div");
+    
+        const priorityColor =
+          issue.priority === "high"
+          ? "bg-red-100 text-red-500"
+          : issue.priority === "medium"
+          ? "bg-yellow-100 text-yellow-600"
+          : "bg-gray-100 text-gray-500";
+    
+        div.className = "bg-white rounded-xl shadow p-5 space-y-4";
+    
+        div.innerHTML = `
+          <div class="flex justify-between items-center">
+            <img src="./assets/Open-Status.png">
+            <span class="px-3 py-1 text-xs rounded-full ${priorityColor}">
+              ${issue.priority.toUpperCase()}
+            </span>
+          </div>
+    
+          <h2 class="font-semibold text-lg">${issue.title}</h2>
+    
+          <p class="text-gray-500 text-sm">${issue.description}</p>
+    
+          <div class="flex gap-2">
+            ${issue.labels?.length ? createElement(issue.labels) : ""}
+          </div>
+    
+          <div class="border-t pt-3 text-sm text-gray-500">
+            #1 by ${issue.author}<br>
+            ${new Date(issue.createdAt).toLocaleDateString()}
+          </div>
+        `;
+    
+        issueContainer.appendChild(div);
+    
+      });
+    
+    }
+
+/* Calling function for all calculation */
+    function updateTotalIssueNumber(count){
+
+      const totalIssue = document.getElementById("total-issue");
+    
+      if(currentStatus === "open"){
+        totalIssue.textContent = count + " Open Issues";
+      }
+      else if(currentStatus === "closed"){
+        totalIssue.textContent = count + " Closed Issues";
+      }
+      else{
+        totalIssue.textContent = count + " Issues";
+      }
+    
+    }
+
+    /* Toggle TAB(ALL,OPEN & CLOSED) feature */
+    function filterJobs(status){
+
+      currentStatus = status;
+    
+      renderIssues();
     
     }
