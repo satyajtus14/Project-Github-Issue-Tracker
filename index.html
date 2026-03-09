@@ -34,13 +34,13 @@
           <div class="navbar bg-base-100 shadow-sm px-4">
         
             <!-- Left Side -->
-            <div class="navbar-start flex items-center gap-3">
+            <div class="navbar-start flex flex-col md:flex-row items-center gap-3">
               <img src="./assets/github-logo.png" class="w-10">
               <p class="text-xl font-semibold">GitHub Issues Tracker</p>
             </div>
         
             <!-- Right Side -->
-            <div class="navbar-end flex items-center gap-4">
+            <div class="navbar-end items-center flex flex-col md:flex-row gap-3">
                <button id="search-id"><input id="input-search" type="text"  placeholder="Search Issues" class="input input-bordered w-56 md:w-72"/> </button>
                 
               <button class="btn btn-primary">
@@ -73,19 +73,19 @@
                 <img src="./assets/Aperture.png" alt="" class="w-15 bg-violet-300 rounded-full">
              </div>
              <div class="issue-info">
-                <h2 class="text-2xl font-bold" id="total-issue"> </h2>
+                <h2 class="text-lg md:text-2xl lg:text-4xl font-bold" id="total-issue"> </h2>
                 <p class="text-neutral/50">Track and manage your project issues</p>
              </div>
     
           </div>
-          <div class="right flex justify-between items-center gap-2">
+          <div class="right justify-between items-center flex flex-col md:flex-row gap-2">
             <img src="./assets/open.png" alt="open">
             <img src="./assets/close.png" alt="close">
           </div>
         </section>
 
         <!-- Add Spinning element for loading page -->
-   <section id="spinner" class="flex justify-center items-center py-10 hidden">
+   <section id="spinner" class="flex justify-center items-center py-10 ">
     <span class="loading loading-bars loading-xl"></span>
    </section>
 

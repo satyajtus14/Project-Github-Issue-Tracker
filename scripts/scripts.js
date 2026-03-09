@@ -1,26 +1,3 @@
-// /* Sign In Button  */
-// const form = document.getElementById("loginForm");
-
-// if(form){
-// form.addEventListener("submit", function(event){
-// event.preventDefault();
-
-// const username = document.getElementById("username").value;
-// const password = document.getElementById("password").value;
-// const error = document.getElementById("error");
-
-// if(username === "admin" && password === "admin123"){
-// localStorage.setItem("user", username);
-
-// alert("Login Successful");
-// window.location.href = "index.html";
-
-// }else{
-// error.textContent = "Invalid username or password";
-// }
-
-// });
-// }
 
 /* Sign Out Button  */
 function signOut(){
@@ -126,7 +103,7 @@ const displayissueById = (issues) => {
     </span>
     </div>
     
-    <h2 class="font-semibold text-lg">${i.title}</h2>
+    <h2 class="font-semibold text-lg md:text-2xl lg:text-4xl">${i.title}</h2>
     
     <p class="text-gray-500 text-sm">${i.description}</p>
     
@@ -230,7 +207,7 @@ const displayissueById = (issues) => {
             </span>
           </div>
     
-          <h2 class="font-semibold text-lg">${issue.title}</h2>
+          <h2 class="font-semibold text-lg md:text-2xl">${issue.title}</h2>
     
           <p class="text-gray-500 text-sm">${issue.description}</p>
     
@@ -238,7 +215,7 @@ const displayissueById = (issues) => {
             ${issue.labels?.length ? createElement(issue.labels) : ""}
           </div>
     
-          <div class="border-t pt-3 text-sm text-gray-500 flex justify-end gap-4">
+          <div class="border-t pt-3 text-sm text-gray-500 flex flex-col md:flex-row justify-end gap-2">
             #${issue.id || ""} by ${issue.author}<br>
             ${new Date(issue.createdAt).toLocaleDateString()}
 
@@ -339,7 +316,7 @@ const displayIssueDetails = (issue) => {
 
   detailsBox.innerHTML = `
  <div class="bg-white w-11/12 rounded-xl shadow-lg p-8 space-y-6">
-     <h2 class="text-3xl font-bold">${issue.title || "No Title"}</h2>
+     <h2 class=" font-bold text-lg md:text-2xl lg:text-4xl">${issue.title || "No Title"}</h2>
 
     <div class="flex items-center gap-3 text-sm text-gray-500">
       <span class="bg-green-500 text-white px-3 py-1 rounded-full text-xs">
