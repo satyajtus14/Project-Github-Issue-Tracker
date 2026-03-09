@@ -1,3 +1,35 @@
+// /* Sign In Button  */
+// const form = document.getElementById("loginForm");
+
+// if(form){
+// form.addEventListener("submit", function(event){
+// event.preventDefault();
+
+// const username = document.getElementById("username").value;
+// const password = document.getElementById("password").value;
+// const error = document.getElementById("error");
+
+// if(username === "admin" && password === "admin123"){
+// localStorage.setItem("user", username);
+
+// alert("Login Successful");
+// window.location.href = "index.html";
+
+// }else{
+// error.textContent = "Invalid username or password";
+// }
+
+// });
+// }
+
+/* Sign Out Button  */
+function signOut(){
+  localStorage.removeItem("user"); // remove login data
+  alert("Logged out successfully");
+  window.location.href = "login.html"; // redirect to login page
+}
+
+
 let allIssues = [];
 
 /* Searching feature */
@@ -137,7 +169,6 @@ const displayissueById = (issues) => {
 
   /* Managing all by Render function  */  
     function renderIssues(){
-      manageSpinner(true);
 
       const issueContainer = document.getElementById("issue-card-container");
       issueContainer.innerHTML = "";
