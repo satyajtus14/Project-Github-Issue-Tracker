@@ -12,7 +12,7 @@ if(username === "admin" && password === "admin123"){
 localStorage.setItem("user", username);
 
 alert("Login Successful");
-window.location.href = "index.html";
+window.location.href = "home.html";
 
 }else{
 error.textContent = "Invalid username or password";
