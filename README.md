@@ -4,14 +4,14 @@
 
 <!-- TODO: Add project logo (e.g., an icon representing issue tracking) -->
 
-[![GitHub stars](https://img.shields.io/github/stars/satyajtus14/Milestone-05-Github-Issue-Tracker?style=for-the-badge)](https://github.com/satyajtus14/Milestone-05-Github-Issue-Tracker/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/satyajtus14/Milestone-05-Github-Issue-Tracker?style=for-the-badge)](https://github.com/satyajtus14/Milestone-05-Github-Issue-Tracker/network)
-[![GitHub issues](https://img.shields.io/github/issues/satyajtus14/Milestone-05-Github-Issue-Tracker?style=for-the-badge)](https://github.com/satyajtus14/Milestone-05-Github-Issue-Tracker/issues)
-[![GitHub license](https://img.shields.io/github/license/satyajtus14/Milestone-05-Github-Issue-Tracker?style=for-the-badge)](https://github.com/satyajtus14/Milestone-05-Github-Issue-Tracker/blob/main/LICENSE) <!-- TODO: Add actual license file or note "Unlicensed" -->
+[![GitHub stars](https://img.shields.io/github/stars/satyajtus14/Milestone-05-Github-Issue-Tracker?style=for-the-badge)](https://github.com/satyajtus14/Milestone-05-Github-Issue-Tracker/stargazers)    
+[![GitHub forks](https://img.shields.io/github/forks/satyajtus14/Milestone-05-Github-Issue-Tracker?style=for-the-badge)](https://github.com/satyajtus14/Milestone-05-Github-Issue-Tracker/network)    
+[![GitHub issues](https://img.shields.io/github/issues/satyajtus14/Milestone-05-Github-Issue-Tracker?style=for-the-badge)](https://github.com/satyajtus14/Milestone-05-Github-Issue-Tracker/issues)    
+[![GitHub license](https://img.shields.io/github/license/satyajtus14/Milestone-05-Github-Issue-Tracker?style=for-the-badge)](https://github.com/satyajtus14/Milestone-05-Github-Issue-Tracker/blob/main/LICENSE)     
 
 **A sleek and intuitive client-side GitHub Issue Tracker for efficient task management, built with modern web technologies.**
 
-[Live Demo](https://satyajtus14.github.io/Milestone-05-Github-Issue-Tracker/home.html) <!-- Assuming GitHub Pages deployment is possible, and home.html is the main app -->
+[Live Demo](https://satyajtus14.github.io/Milestone-05-Github-Issue-Tracker/home.html)     
 
 </div>
 
@@ -28,28 +28,17 @@ The GitHub Issue Tracker is a frontend-only web application designed to help use
 -   ✍️ **Vanilla JavaScript Interactivity**: Dynamic client-side behavior powered purely by Vanilla JavaScript, showcasing fundamental web development practices.
 -   📱 **Responsive Design**: Adapts seamlessly to various screen sizes, from desktops to mobile devices.
 
-## 🖥️ Screenshots
-
-<!-- TODO: Add actual screenshots of the application in action.
-Examples:
-- Screenshot of the main issue list.
-- Screenshot of adding/editing an issue.
-- Screenshot of the application on a mobile device.
--->
-![Main Dashboard](https://via.placeholder.com/800x450/007bff/ffffff?text=Main%20Dashboard)
-![Issue Creation Form](https://via.placeholder.com/800x450/28a745/ffffff?text=Create%20Issue%20Form)
-![Responsive View](https://via.placeholder.com/400x700/6c757d/ffffff?text=Mobile%20View)
 
 ## 🛠️ Tech Stack
 
 **Frontend:**
--   **HTML5**: Structure and content of the web pages.
--   **Vanilla JavaScript**: Core logic and dynamic interactivity.
--   **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
-    [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
--   **Daisy UI**: Tailwind CSS component library for ready-to-use UI elements.
-    [![Daisy UI](https://img.shields.io/badge/DaisyUI-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white)](https://daisyui.com/)
--   **Vanilla CSS**: Custom styling for specific elements.
+-   **HTML5**: Structure and content of the web pages.    
+-   **Vanilla JavaScript**: Core logic and dynamic interactivity.    
+-   **Tailwind CSS**: Utility-first CSS framework for rapid UI development.    
+    [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)    
+-   **Daisy UI**: Tailwind CSS component library for ready-to-use UI elements.    
+    [![Daisy UI](https://img.shields.io/badge/DaisyUI-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white)](https://daisyui.com/)    
+-   **Vanilla CSS**: Custom styling for specific elements.    
 
 ## 🚀 Quick Start
 
